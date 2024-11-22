@@ -11,7 +11,7 @@ table 71180275 AlertSESTM
     Caption = 'Alert';
     DataClassification = SystemMetadata;
     DrillDownPageId = AlertListSESTM;
-    Extensible = false;
+    Extensible = true;
     LookupPageId = AlertListSESTM;
     Permissions =
         tabledata AlertSESTM = RD,
@@ -23,39 +23,56 @@ table 71180275 AlertSESTM
         {
             Caption = 'ID';
             NotBlank = true;
+            ToolTip = 'The unique identifier for the alert.';
+
         }
         field(2; AlertCode; Enum "AlertCodeSESTM")
         {
             Caption = 'Code';
+
             NotBlank = true;
+            ToolTip = 'The code representing the type of alert.';
         }
         field(3; ShortDescription; Text[100])
         {
             Caption = 'Short Description';
+            ToolTip = 'A brief description of the alert.';
+
         }
         field(4; LongDescription; Text[250])
         {
             Caption = 'Long Description';
+            ToolTip = 'A detailed description of the alert.';
+
         }
         field(5; Severity; Enum SeveritySESTM)
         {
             Caption = 'Severity';
+            ToolTip = 'The severity level of the alert.';
+
         }
         field(6; ActionRecommendation; Text[250])
         {
             Caption = 'Action Recommendation';
+            ToolTip = 'Recommended actions to take in response to the alert.';
+
         }
         field(7; "Area"; Enum AreaSESTM)
         {
             Caption = 'Area';
+            ToolTip = 'The area or module where the alert is relevant.';
+
         }
+
         /// <summary>
         /// This is the unique Guid for a specific warning per Alert Code, not a an ID for the Alert Code. 
         /// Its used to allow the user to mark a warning as read
         /// </summary>
         field(8; UniqueIdentifier; Text[100])
         {
+            AllowInCustomizations = Always;
             Caption = 'Unique Identifier';
+            ToolTip = 'A unique identifier for a specific warning per alert code.';
         }
         field(9; Ignore; Boolean)
         {
@@ -63,6 +80,7 @@ table 71180275 AlertSESTM
             Caption = 'Ignore';
             Editable = false;
             FieldClass = FlowField;
+            ToolTip = 'Indicates whether the alert should be ignored.';
         }
     }
 

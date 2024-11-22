@@ -38,17 +38,18 @@ codeunit 71180277 AlertDevScopeExtSESTM implements IAuditAlertSESTM
             until Extensions.Next() = 0;
     end;
 
-    procedure ShowMoreDetails()
+    procedure ShowMoreDetails(var Alert: Record AlertSESTM)
     var
-        DetailedExplainationMsg: Label 'Extensions published in DEV scope will get uninstalled when the environment is upgraded to a newer version. Publishing them in PTE scope instead will prevent this.\\This is also an indicator that the developer of this extension may not be using a repository with automated deployment. You may want to investigate here to find out about the reasons for this extension being published in DEV scope.';
+        DetailedExplanationMsg: Label 'Extensions published in DEV scope will get uninstalled when the environment is upgraded to a newer version. Publishing them in PTE scope instead will prevent this.\\This is also an indicator that the developer of this extension may not be using a repository with automated deployment. You may want to investigate here to find out about the reasons for this extension being published in DEV scope.';
     begin
-        Message(DetailedExplainationMsg);
+        Message(DetailedExplanationMsg);
     end;
 
-    procedure RunActionRecommendations()
+    procedure RunActionRecommendations(var Alert: Record AlertSESTM)
     var
-        NoAutoFixMsg: Label 'Unfortunately, there is no automatic fix for that.';
+        OpenPageQst: Label 'Do you want to open the page to manage the extension?';
     begin
-        Message(NoAutoFixMsg);
+        if Confirm(OpenPageQst) then
+            Page.Run(Page::"Extension Management");
     end;
 }

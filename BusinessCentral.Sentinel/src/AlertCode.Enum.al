@@ -5,6 +5,7 @@ enum 71180275 "AlertCodeSESTM" implements IAuditAlertSESTM
     Access = Public;
     DefaultImplementation = IAuditAlertSESTM = AlertSESTM;
     Extensible = true;
+    UnknownValueImplementation = IAuditAlertSESTM = AlertSESTM;
 
     value(0; " ")
     {

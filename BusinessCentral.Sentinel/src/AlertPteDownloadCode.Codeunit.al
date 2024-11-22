@@ -15,7 +15,7 @@ codeunit 71180276 AlertPteDownloadCodeSESTM implements IAuditAlertSESTM
     var
         Alert: Record AlertSESTM;
         Extensions: Record "NAV App Installed App";
-        ActionRecomendationLbl: Label 'Talk to the third party that developed the extension and ask for a copy of the code or to enable the download code option.';
+        ActionRecommendationLbl: Label 'Talk to the third party that developed the extension and ask for a copy of the code or to enable the download code option.';
         LongDescLbl: Label 'Per Tenant Extension does not allow Download Code, if the code was developed for you by a third party, you might want to make sure to have access to the code in case you need to make changes in the future and the third party is not available anymore.';
         ShortDescLbl: Label 'Download Code not allowed for PTE: %1', Comment = '%1 = Extension Name';
     begin
@@ -32,7 +32,7 @@ codeunit 71180276 AlertPteDownloadCodeSESTM implements IAuditAlertSESTM
                         Alert.Validate(Severity, SeveritySESTM::Warning);
                         Alert.Validate("Area", AreaSESTM::Technical);
                         Alert.Validate(LongDescription, LongDescLbl);
-                        Alert.Validate(ActionRecommendation, ActionRecomendationLbl);
+                        Alert.Validate(ActionRecommendation, ActionRecommendationLbl);
                         Alert.Validate(UniqueIdentifier, Extensions."App ID");
                         Alert.Insert(true);
                     end;
@@ -48,17 +48,18 @@ codeunit 71180276 AlertPteDownloadCodeSESTM implements IAuditAlertSESTM
         ExtensionManagement.GetExtensionSource(PackageId, ExtensionSourceTempBlob);
     end;
 
-    procedure ShowMoreDetails()
+    procedure ShowMoreDetails(var Alert: Record AlertSESTM)
     var
         MoreDetailsMsg: Label 'The extension is a Per Tenant Extension and does not allow Download Code. If the code was developed for you by a third party, you might want to make sure to have access to the code in case you need to make changes in the future and the third party is not available anymore.';
     begin
         Message(MoreDetailsMsg);
     end;
 
-    procedure RunActionRecommendations()
+    procedure RunActionRecommendations(var Alert: Record AlertSESTM)
     var
-        NoAutomaticFixMsg: Label 'Unfortunately, there is no automatic fix for that.';
+        OpenPageQst: Label 'Do you want to open the page to manage the extension?';
     begin
-        Message(NoAutomaticFixMsg);
+        if Confirm(OpenPageQst) then
+            Page.Run(Page::"Extension Management");
     end;
 }

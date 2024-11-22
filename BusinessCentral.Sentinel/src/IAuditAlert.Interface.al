@@ -5,6 +5,6 @@ interface IAuditAlertSESTM
     Access = Public;
 
     procedure CreateAlerts()
-    procedure ShowMoreDetails()
-    procedure RunActionRecommendations()
+    procedure ShowMoreDetails(var Alert: Record AlertSESTM)
+    procedure RunActionRecommendations(var Alert: Record AlertSESTM)
 }
