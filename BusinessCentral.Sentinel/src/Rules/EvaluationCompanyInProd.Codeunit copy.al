@@ -28,47 +28,59 @@ codeunit 71180279 DemoDataExtInProdSESTM implements IAuditAlertSESTM
         Extensions.SetLoadFields("App ID", Name);
 
         if Extensions.FindFirst() then begin
-            Alert.Validate(AlertCode, "AlertCodeSESTM"::"SE-000004");
-            Alert.Validate("ShortDescription", StrSubstNo(ShotDescLbl, Extensions."Name"));
-            if EnvironmentInformation.IsProduction() then
-                Alert.Validate(Severity, SeveritySESTM::Warning)
-            else
-                Alert.Validate(Severity, SeveritySESTM::Info);
-            Alert.Validate("Area", AreaSESTM::Technical);
-            Alert.Validate(LongDescription, LongDescLbl);
-            Alert.Validate(ActionRecommendation, StrSubstNo(ActionRecommendationLbl, Extensions."Name"));
-            Alert.Validate(UniqueIdentifier, Extensions."App ID");
-            Alert.Insert(true);
+            Alert.SetRange(AlertCode, "AlertCodeSESTM"::"SE-000004");
+            Alert.SetRange("UniqueIdentifier", Extensions."App ID");
+            if Alert.IsEmpty then begin
+                Alert.Validate(AlertCode, "AlertCodeSESTM"::"SE-000004");
+                Alert.Validate("ShortDescription", StrSubstNo(ShotDescLbl, Extensions."Name"));
+                if EnvironmentInformation.IsProduction() then
+                    Alert.Validate(Severity, SeveritySESTM::Warning)
+                else
+                    Alert.Validate(Severity, SeveritySESTM::Info);
+                Alert.Validate("Area", AreaSESTM::Technical);
+                Alert.Validate(LongDescription, LongDescLbl);
+                Alert.Validate(ActionRecommendation, StrSubstNo(ActionRecommendationLbl, Extensions."Name"));
+                Alert.Validate(UniqueIdentifier, Extensions."App ID");
+                Alert.Insert(true);
+            end;
         end;
 
         Extensions.SetRange("App ID", ContosoCoffeeDemoDatasetUSAppIdTok);
         if Extensions.FindFirst() then begin
-            Alert.Validate(AlertCode, "AlertCodeSESTM"::"SE-000004");
-            Alert.Validate("ShortDescription", StrSubstNo(ShotDescLbl, Extensions."Name"));
-            if EnvironmentInformation.IsProduction() then
-                Alert.Validate(Severity, SeveritySESTM::Warning)
-            else
-                Alert.Validate(Severity, SeveritySESTM::Info);
-            Alert.Validate("Area", AreaSESTM::Technical);
-            Alert.Validate(LongDescription, LongDescLbl);
-            Alert.Validate(ActionRecommendation, StrSubstNo(ActionRecommendationLbl, Extensions."Name"));
-            Alert.Validate(UniqueIdentifier, Extensions."App ID");
-            Alert.Insert(true);
+            Alert.SetRange(AlertCode, "AlertCodeSESTM"::"SE-000004");
+            Alert.SetRange("UniqueIdentifier", Extensions."App ID");
+            if Alert.IsEmpty then begin
+                Alert.Validate(AlertCode, "AlertCodeSESTM"::"SE-000004");
+                Alert.Validate("ShortDescription", StrSubstNo(ShotDescLbl, Extensions."Name"));
+                if EnvironmentInformation.IsProduction() then
+                    Alert.Validate(Severity, SeveritySESTM::Warning)
+                else
+                    Alert.Validate(Severity, SeveritySESTM::Info);
+                Alert.Validate("Area", AreaSESTM::Technical);
+                Alert.Validate(LongDescription, LongDescLbl);
+                Alert.Validate(ActionRecommendation, StrSubstNo(ActionRecommendationLbl, Extensions."Name"));
+                Alert.Validate(UniqueIdentifier, Extensions."App ID");
+                Alert.Insert(true);
+            end;
         end;
 
         Extensions.SetRange("App ID", SustainabilityContosoCoffeeDemoDatasetAppIdTok);
         if Extensions.FindFirst() then begin
-            Alert.Validate(AlertCode, "AlertCodeSESTM"::"SE-000004");
-            Alert.Validate("ShortDescription", StrSubstNo(ShotDescLbl, Extensions."Name"));
-            if EnvironmentInformation.IsProduction() then
-                Alert.Validate(Severity, SeveritySESTM::Warning)
-            else
-                Alert.Validate(Severity, SeveritySESTM::Info);
-            Alert.Validate("Area", AreaSESTM::Technical);
-            Alert.Validate(LongDescription, LongDescLbl);
-            Alert.Validate(ActionRecommendation, StrSubstNo(ActionRecommendationLbl, Extensions."Name"));
-            Alert.Validate(UniqueIdentifier, Extensions."App ID");
-            Alert.Insert(true);
+            Alert.SetRange(AlertCode, "AlertCodeSESTM"::"SE-000004");
+            Alert.SetRange("UniqueIdentifier", Extensions."App ID");
+            if Alert.IsEmpty then begin
+                Alert.Validate(AlertCode, "AlertCodeSESTM"::"SE-000004");
+                Alert.Validate("ShortDescription", StrSubstNo(ShotDescLbl, Extensions."Name"));
+                if EnvironmentInformation.IsProduction() then
+                    Alert.Validate(Severity, SeveritySESTM::Warning)
+                else
+                    Alert.Validate(Severity, SeveritySESTM::Info);
+                Alert.Validate("Area", AreaSESTM::Technical);
+                Alert.Validate(LongDescription, LongDescLbl);
+                Alert.Validate(ActionRecommendation, StrSubstNo(ActionRecommendationLbl, Extensions."Name"));
+                Alert.Validate(UniqueIdentifier, Extensions."App ID");
+                Alert.Insert(true);
+            end;
         end;
     end;
 

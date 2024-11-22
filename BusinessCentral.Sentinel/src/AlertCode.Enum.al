@@ -43,4 +43,12 @@ enum 71180275 "AlertCodeSESTM" implements IAuditAlertSESTM
         Caption = 'SE-000004';
         Implementation = IAuditAlertSESTM = DemoDataExtInProdSESTM;
     }
+    /// <summary>
+    /// Inform about users with Super permissions
+    /// </summary>
+    value(5; "SE-000005")
+    {
+        Caption = 'SE-000005';
+        Implementation = IAuditAlertSESTM = UserWithSuperSESTM;
+    }
 }

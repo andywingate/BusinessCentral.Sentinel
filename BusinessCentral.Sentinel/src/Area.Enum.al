@@ -17,4 +17,8 @@ enum 71180277 AreaSESTM
     {
         Caption = 'Performance';
     }
+    value(4; Permissions)
+    {
+        Caption = 'Permissions';
+    }
 }
