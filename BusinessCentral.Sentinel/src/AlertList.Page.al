@@ -36,6 +36,8 @@ page 71180275 AlertListSESTM
                 }
                 field(LongDescription; Rec.LongDescription)
                 {
+                    MultiLine = true;
+
                     trigger OnDrillDown()
                     var
                         IAuditAlert: Interface IAuditAlertSESTM;
@@ -79,13 +81,59 @@ page 71180275 AlertListSESTM
 
                 trigger OnAction()
                 begin
-                    Rec.RunAllAlerts();
+                    Rec.FindNewAlerts();
+                end;
+            }
+            action(SetToIgnore)
+            {
+                Caption = 'Ignore';
+                Image = Delete;
+                ToolTip = 'Ignore this alert.';
+
+                trigger OnAction()
+                begin
+                    Rec.SetToIgnore();
+                end;
+            }
+            action(ClearIgnore)
+            {
+                Caption = 'Stop Ignoring';
+                Image = Restore;
+                ToolTip = 'Clear the ignore status of this alert.';
+
+                trigger OnAction()
+                begin
+                    Rec.ClearIgnore();
+                end;
+            }
+            action(ClearAllAlerts)
+            {
+                Caption = 'Clear All Alerts';
+                Image = Delete;
+                ToolTip = 'Clear all alerts.';
+
+                trigger OnAction()
+                begin
+                    Rec.ClearAllAlerts();
+                end;
+            }
+            action(FullReRun)
+            {
+                Caption = 'Full Re-Run';
+                Image = Suggest;
+                ToolTip = 'Run the analysis of the current environment, and check for new alerts.';
+
+                trigger OnAction()
+                begin
+                    Rec.FullRerun();
                 end;
             }
         }
         area(Promoted)
         {
             actionref(RunAnalysis_Promoted; RunAnalysis) { }
+            actionref(SetToIgnore_Promoted; SetToIgnore) { }
+            actionref(ClearIgnore_Promoted; ClearIgnore) { }
         }
     }
 
