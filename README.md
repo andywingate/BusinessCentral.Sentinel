@@ -10,6 +10,17 @@ BusinessCentral.Sentinel is an intelligent monitoring and advisory tool designed
 - **Intuitive Dashboards**: Visualize key performance indicators and insights at a glance.
 - **Seamless Integration**: Built specifically for Dynamics 365 Business Central, ensuring smooth workflow integration.
 
+## Rules
+
+| ID | Short Description | Area | Severity |
+|----------|-----------------------------------------------------------------------------------|------------|----------|
+| SE-000001| Warns if Per Tenant Extension do not allow Download Code| Technical| Warning|
+| SE-000002| Warns if Extension in DEV Scope are installed | Technical| Warning|
+| SE-000003| Evaluation Company detected in Production | Technical | Info |
+| SE-000004| Demo Data Extensions should get uninstalled from production | Technical | Info |
+| SE-000005| Inform about users with Super permissions | Permissions| Info |
+| SE-000006| Consider configuring non-posting number series to allow gaps to increase performance | Performance| Warning|
+
 ## Documentation
 
 For detailed documentation, visit our [GitHub Wiki](https://github.com/StefanMaron/BusinessCentral.Sentinel/wiki).
