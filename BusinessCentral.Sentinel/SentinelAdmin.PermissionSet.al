@@ -14,5 +14,7 @@ permissionset 71180275 SentinelAdminSESTM
         codeunit AlertDevScopeExtSESTM = X,
         codeunit AlertPteDownloadCodeSESTM = X,
         codeunit AlertSESTM = X,
+        codeunit DemoDataExtInProdSESTM = X,
+        codeunit EvaluationCompanyInProdSESTM = X,
         page AlertListSESTM = X;
 }

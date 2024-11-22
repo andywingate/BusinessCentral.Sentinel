@@ -21,6 +21,7 @@ codeunit 71180276 AlertPteDownloadCodeSESTM implements IAuditAlertSESTM
     begin
         Extensions.SetRange("Published As", Extensions."Published As"::PTE);
         Extensions.ReadIsolation(IsolationLevel::ReadUncommitted);
+        Extensions.SetLoadFields("Package ID", "App ID", Name);
         if Extensions.FindSet() then
             repeat
                 Alert.SetRange(AlertCode, "AlertCodeSESTM"::"SE-000001");

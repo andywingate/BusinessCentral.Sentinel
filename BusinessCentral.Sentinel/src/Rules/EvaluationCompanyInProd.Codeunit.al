@@ -20,6 +20,8 @@ codeunit 71180278 EvaluationCompanyInProdSESTM implements IAuditAlertSESTM
         ShortDescLbl: Label 'Evaluation Company In Prod detected: %1', Comment = '%1 = Company Name';
     begin
         Company.SetRange("Evaluation Company", true);
+        Company.ReadIsolation(IsolationLevel::ReadUncommitted);
+        Company.SetLoadFields("Name", SystemId);
         if Company.FindSet() then
             repeat
                 Alert.SetRange(AlertCode, "AlertCodeSESTM"::"SE-000003");
