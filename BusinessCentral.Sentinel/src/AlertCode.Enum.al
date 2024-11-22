@@ -51,4 +51,12 @@ enum 71180275 "AlertCodeSESTM" implements IAuditAlertSESTM
         Caption = 'SE-000005';
         Implementation = IAuditAlertSESTM = UserWithSuperSESTM;
     }
+    /// <summary>
+    /// Consider configuring non-posting number series to allow gaps to increase performance
+    /// </summary>
+    value(6; "SE-000006")
+    {
+        Caption = 'SE-000006';
+        Implementation = IAuditAlertSESTM = NonPostNoSeriesGapsSESTM;
+    }
 }

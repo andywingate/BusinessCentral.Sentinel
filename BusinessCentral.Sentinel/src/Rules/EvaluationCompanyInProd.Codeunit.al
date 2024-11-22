@@ -2,6 +2,7 @@ namespace STM.BusinessCentral.Sentinel;
 
 using STM.BusinessCentral.Sentinel;
 using System.Environment;
+using System.Environment.Configuration;
 
 codeunit 71180278 EvaluationCompanyInProdSESTM implements IAuditAlertSESTM
 {
