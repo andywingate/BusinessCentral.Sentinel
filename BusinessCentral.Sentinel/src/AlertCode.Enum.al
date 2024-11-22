@@ -23,4 +23,10 @@ enum 71180275 "AlertCodeSESTM" implements IAuditAlertSESTM
         Caption = 'SE-000002';
         Implementation = IAuditAlertSESTM = AlertDevScopeExtSESTM;
     }
+    value(3; "SE-000003")
+    {
+        // Evaluation Company In Prod detected
+        Caption = 'SE-000003';
+        Implementation = IAuditAlertSESTM = EvaluationCompanyInProdSESTM;
+    }
 }

@@ -147,6 +147,7 @@ table 71180275 AlertSESTM
     procedure FullRerun()
     begin
         Rec.ClearAllAlerts();
+        Commit(); // Commit the transaction to ensure that the alerts are deleted before they are recreated
         Rec.FindNewAlerts();
     end;
 
