@@ -1,8 +1,11 @@
 {
-  "country": "us",
+  "country": "w1",
   "appSourceCopMandatoryAffixes": [
-    "<affix>"
+    "SESTM"
   ],
+  "enableAppSourceCop": true,
+  "enableExternalRulesets": true,
+  "rulesetFile": "custom.ruleset.json",
   "appFolders": [],
   "testFolders": [],
   "bcptTestFolders": []

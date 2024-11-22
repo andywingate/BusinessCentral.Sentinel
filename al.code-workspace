@@ -7,5 +7,23 @@
       "path": ".AL-Go"
     }
   ],
-  "settings": {}
+  "settings": {
+    "CRS.ObjectNameSuffix": "SESTM",
+    "CRS.RemoveSuffixFromFilename": true,
+    "al-test-runner.enableCodeCoverage": true,
+    "al.codeAnalyzers": [
+      "${CodeCop}",
+      "${UICop}",
+      "${PerTenantExtensionCop}",
+      "${AppSourceCop}",
+      "${analyzerFolder}BusinessCentral.LinterCop.dll"
+    ],
+    "al.enableCodeAnalysis": true,
+    "al.backgroundCodeAnalysis": "Project",
+    "al.enableExternalRulesets": true,
+    "al.ruleSetPath": "../custom.ruleset.json",
+    "cSpell.words": [
+      "SESTM"
+    ]
+  }
 }
